@@ -1,0 +1,50 @@
+image_analysis_task:
+  description: >
+    You are given a user's photos {shop_photos} taken when they were visiting the restaurant. 
+    Photos could be about cuisines or the dining environment.
+    Birefly describe the content of the image in one sentence.
+  agent: image_analysis_agent
+  expected_output: >
+    Image captions on restaurant/cuisine photos.
+
+user_profile_task:
+  description: >
+    You are given a user's restaurant visit history {visit_history} with reviews, rating, price tiers, restaurant information, and descriptions of uploaded images.
+    Analyze patterns and summarize preferences.
+  agent: user_profile_agent
+  expected_output: >
+    User's dining preferences.
+
+coarse_RAG_match_task:
+  description: >
+    You are give a user profile. You will use a RAG tool to quickly find the top 10 restaurants/cafes/bakeries that match the profile.
+  agent: coarse_RAG_matcher
+  expected_output: >
+    Coarse top 10 restaurant/cafes/bakeries recommendations.
+
+restaurant_recommendation_task:
+  description: >
+    You are given:
+    1. A structured user profile summarizing dining preferences, including cuisines, price sensitivity, ratings, and visual food interests.
+    2. A set of candidate restaurants retrieved from the database.
+    3. A list of trending restaurants from the internet.
+
+    Your job:
+    - Analyze how well each candidate aligns with the user profile.
+    - Consider cuisine match, price tier fit, user's average rating tendencies, and whether the restaurant's style aligns with the user's expressed or implied preferences.
+    - Rank the top 3 restaurants that best fit the profile from the database.
+    - Select one novel restaurant that might fit the profile from the trending restaurants.
+    - Ensure diversity (do not return three nearly identical options).
+    - Provide a short justification for why each restaurant was chosen.
+  agent: restaurant_recommendation_agent
+  expected_output: >
+    Recommendations with top 3 restaurants and justification from the database, and 1 novel restaurant and justification from the trending restaurants.
+
+food_trend_task:
+  description: >
+    Analyze and report on the top 5 emerging food trends, new cuisines, and popular local establishments in the given {location}.
+    This will provide context for exploration recommendations.
+    For each food trend, please search one restaurant, with its name and its brief introduction.
+  agent: food_trend_agent
+  expected_output: >
+    A structured report in markdown format, highlighting the top 5 food trends in the user's location with supporting details.

@@ -1,0 +1,698 @@
+{
+  "restaurants": [
+    {
+      "label": "Restaurant 1",
+      "type": "Traditional Catalan",
+      "location": "Barcelona",
+      "rating": 4.7,
+      "price_range": "€€",
+      "short_description": "A cozy Catalan eatery specializing in seafood paella and rustic local flavors.",
+      "signature_items": ["Seafood Paella", "Fideuà", "Escudella", "Cava Sangria"],
+      "review_titles": [
+        "Feels like home 🏡",
+        "Paella was fine but not amazing",
+        "Crowded atmosphere",
+        "Staff saved the night",
+        "Disgusting experience!"
+      ],
+      "reviews": [
+        "The seafood paella was aromatic, layered, and brimming with fresh prawns. This is the kind of place that makes you want to stay an extra hour over cava.",
+        "Honestly, I have had better paella in Valencia. It was not bad, just not the life changing dish people promised me.",
+        "The restaurant is so cramped, I felt like I was sharing a table with strangers. Not my thing.",
+        "Our server went out of their way to accommodate my gluten allergy. I felt taken care of.",
+        "Terrible experience. I found a piece of shell in my food and the manager acted like it was my fault. Will NEVER come back. 1 star."
+      ]
+    },
+    {
+      "label": "Restaurant 2",
+      "type": "High end Modernist Fusion",
+      "location": "Barcelona",
+      "rating": 4.9,
+      "price_range": "€€€€",
+      "short_description": "A Michelin-inspired tasting menu with modernist twists and impeccable plating.",
+      "signature_items": ["Smoked Eel with Apple Foam", "Truffle Ravioli", "Foie Gras Bonbons", "Wine Pairing Menu"],
+      "review_titles": [
+        "Memorable tasting menu ⭐",
+        "Pretentious vibe",
+        "Top service",
+        "Expensive but fair",
+        "Absolute scam"
+      ],
+      "reviews": [
+        "Each dish was a piece of art. I will remember the smoked eel with apple foam forever.",
+        "The staff was polite, but the atmosphere felt like a fashion show. Not relaxing.",
+        "Perfect execution and pacing. The sommelier knew her wines backwards.",
+        "Three hours of tiny portions. Delicious, but my wallet and stomach both felt lighter afterward.",
+        "Biggest scam I have experienced in Barcelona. Paid €300 and left hungry. Save your money."
+      ]
+    },
+    {
+      "label": "Restaurant 3",
+      "type": "Indian Street Food",
+      "location": "Barcelona",
+      "rating": 4.4,
+      "price_range": "€",
+      "short_description": "Casual and vibrant eatery bringing the flavors of Delhi’s streets to Barcelona.",
+      "signature_items": ["Samosas", "Butter Chicken", "Garlic Naan", "Masala Chai"],
+      "review_titles": [
+        "Authentic taste! 🌶",
+        "Too spicy for me",
+        "Budget friendly",
+        "Chaotic but fun",
+        "Food poisoning 😡"
+      ],
+      "reviews": [
+        "If you want real Indian flavors with heat, tang, and spice this is it. The samosas were spot on.",
+        "Way too spicy. I could not finish half my plate.",
+        "Great food for under €10. Perfect for students and backpackers.",
+        "It is noisy, crowded, and a bit of a mess… but somehow that is the charm. Felt like a Delhi street corner.",
+        "I was sick all night after eating here. Never again."
+      ]
+    },
+    {
+      "label": "Restaurant 4",
+      "type": "Vegan Mediterranean",
+      "location": "Barcelona",
+      "rating": 4.6,
+      "price_range": "€€",
+      "short_description": "A colorful vegan spot blending Mediterranean ingredients with creative plating.",
+      "signature_items": ["Oyster Mushroom Calamari", "Falafel Bowl", "Olive Oil Chocolate Mousse", "Beetroot Smoothie"],
+      "review_titles": [
+        "Plant based surprise 🌱",
+        "Overhyped Instagram spot",
+        "Colorful and fresh",
+        "Great brunch spot",
+        "Awful dessert"
+      ],
+      "reviews": [
+        "I am not vegan, but the calamari made from oyster mushrooms blew me away.",
+        "Cute place but way too focused on being Instagrammable. The food was not as good as the decor.",
+        "Plates were bursting with color and flavor. Perfect for sharing.",
+        "We had a lazy Sunday brunch here and it hit the spot. Smoothies were amazing.",
+        "Their olive oil chocolate mousse tasted like bitter oil. Could not eat more than a spoonful."
+      ]
+    },
+    {
+      "label": "Restaurant 5",
+      "type": "Japanese Izakaya",
+      "location": "Barcelona",
+      "rating": 4.8,
+      "price_range": "€€€",
+      "short_description": "Intimate izakaya with authentic ramen, skewers, and a lively Tokyo-style vibe.",
+      "signature_items": ["Tonkotsu Ramen", "Yakitori Skewers", "Okonomiyaki", "Matcha Cheesecake"],
+      "review_titles": [
+        "Best ramen in town 🍜",
+        "Tiny space no privacy",
+        "Transported to Tokyo",
+        "Friendly chef",
+        "Long wait and rude host"
+      ],
+      "reviews": [
+        "Ramen broth was rich and layered, it warmed my soul.",
+        "I could not hear my friend across the table. Too small and too loud.",
+        "This feels like stepping straight into Japan. Loved the atmosphere.",
+        "The chef personally recommended dishes and even explained them. Very warm hospitality.",
+        "Waited an hour, host rolled his eyes at us, then rushed us out. Not acceptable."
+      ]
+    },
+    {
+      "label": "Restaurant 6",
+      "type": "Seafood Grill",
+      "location": "Barcelona",
+      "rating": 4.5,
+      "price_range": "€€€",
+      "short_description": "Beachside seafood restaurant specializing in grilled prawns, lobster, and octopus.",
+      "signature_items": ["Grilled Prawns", "Charred Octopus", "Lobster Rice", "Sangria Pitcher"],
+      "review_titles": [
+        "Beachside feast 🐟",
+        "Overpriced for tourists",
+        "Octopus perfection",
+        "Messy but fun",
+        "Horrible service"
+      ],
+      "reviews": [
+        "Grilled prawns, lobster, calamari, everything tasted like the ocean kissed by fire.",
+        "I think they inflate prices because it is by the beach. Locals warned me, and I kind of agree.",
+        "The octopus was hands down the best I have ever had, perfectly charred and melt in your mouth inside.",
+        "It is the kind of food you eat with your hands, lick your fingers, and laugh about later.",
+        "Our server disappeared for 40 minutes. When we asked for the bill, they acted annoyed. Worst service ever."
+      ]
+    },
+    {
+      "label": "Restaurant 7",
+      "type": "Middle Eastern Mezze",
+      "location": "Barcelona",
+      "rating": 4.3,
+      "price_range": "€€",
+      "short_description": "Casual eatery with a lively atmosphere serving mezze, falafel, and fresh pita.",
+      "signature_items": ["Falafel", "Hummus", "Baba Ghanoush", "Labneh"],
+      "review_titles": [
+        "So many flavors! 🥙",
+        "Way too noisy",
+        "Falafel perfection",
+        "Family vibes",
+        "Worst hummus ever"
+      ],
+      "reviews": [
+        "I loved the endless mezze plates with hummus, baba ghanoush, and labneh, all delicious.",
+        "This place is LOUD. Felt like a party, which is not what I wanted that night.",
+        "Falafel was perfectly fried, crispy outside and fluffy inside.",
+        "The owners treated us like family, even brought extra pita for free.",
+        "The hummus was bland and watery. How do you mess up hummus?"
+      ]
+    },
+    {
+      "label": "Restaurant 8",
+      "type": "Argentine Steakhouse",
+      "location": "Barcelona",
+      "rating": 4.7,
+      "price_range": "€€€",
+      "short_description": "Authentic Argentine parrilla serving smoky grilled steaks and empanadas.",
+      "signature_items": ["Ribeye Steak", "Chorizo Criollo", "Empanadas", "Malbec Wine"],
+      "review_titles": [
+        "Perfect steak 🥩",
+        "A bit too heavy",
+        "Authentic Argentine cuts",
+        "Rustic and simple",
+        "Burnt steak disaster"
+      ],
+      "reviews": [
+        "My ribeye was grilled to absolute perfection, juicy, smoky, tender.",
+        "Left feeling stuffed and sluggish. Portions were massive, maybe too much.",
+        "This is real Argentine steak with no gimmicks.",
+        "Rustic decor, wooden tables, nothing fancy, just meat meat meat.",
+        "Ordered medium rare and got a charred hockey puck. Manager shrugged. Won’t return."
+      ]
+    },
+    {
+      "label": "Restaurant 9",
+      "type": "Korean BBQ",
+      "location": "Barcelona",
+      "rating": 4.2,
+      "price_range": "€€",
+      "short_description": "Interactive dining with DIY table grills, kimchi, and sizzling marinated meats.",
+      "signature_items": ["Bulgogi", "Galbi", "Kimchi", "Soju"],
+      "review_titles": [
+        "DIY fun 🔥",
+        "Too smoky inside",
+        "Great kimchi",
+        "Perfect for groups",
+        "Raw chicken served 😱"
+      ],
+      "reviews": [
+        "Cooking the meat yourself was fun, it turned dinner into an activity.",
+        "We left smelling like grilled pork. Ventilation could be better.",
+        "The kimchi was fantastic, spicy, tangy, fermented just right.",
+        "This is a group spot. Do not go alone, it is awkward.",
+        "They served us raw chicken. Absolutely unacceptable."
+      ]
+    },
+    {
+      "label": "Restaurant 10",
+      "type": "Contemporary Tapas and Cocktails",
+      "location": "Barcelona",
+      "rating": 4.6,
+      "price_range": "€€€",
+      "short_description": "Trendy tapas bar with creative dishes, inventive cocktails, and a romantic vibe.",
+      "signature_items": ["Truffle Patatas Bravas", "Octopus Carpaccio", "Gin Cocktails", "Churro Ice Cream Sandwich"],
+      "review_titles": [
+        "Trendy and tasty ✨",
+        "Small portions big price",
+        "Cocktail heaven",
+        "Romantic vibe",
+        "Food poisoning night"
+      ],
+      "reviews": [
+        "Every tapa was creative, especially the truffle patatas bravas, unforgettable.",
+        "Honestly, the portions are a joke for the price. Three bites and it was gone.",
+        "The cocktails were incredible, balanced, complex, and beautifully served.",
+        "Romantic candlelit interior. Ideal for date night.",
+        "Got sick after eating the octopus carpaccio. Horrible evening."
+      ]
+    }
+  ],
+  "cafes": [
+    {
+      "label": "Cafe 1",
+      "type": "Artisan Coffee Shop",
+      "location": "Barcelona",
+      "rating": 4.8,
+      "price_range": "€€",
+      "short_description": "Trendy artisan coffee shop serving specialty brews and homemade pastries.",
+      "signature_items": ["Flat White", "Cappuccino", "Cold Brew", "Banana Bread"],
+      "review_titles": [
+        "Best cappuccino ever ☕",
+        "Hipster paradise",
+        "Too crowded",
+        "Friendly baristas",
+        "Rude and overpriced"
+      ],
+      "reviews": [
+        "The cappuccino was so creamy I almost ordered a second just for fun.",
+        "Decor is trendy, very hipster, plants everywhere. Not my taste but others will love it.",
+        "Could not find a seat. This place is way too busy at peak times.",
+        "Baristas remembered my name and order. Felt very welcoming.",
+        "One of the rudest staff interactions I’ve had. €6 for a small latte? Insane. Never again."
+      ]
+    },
+    {
+      "label": "Cafe 2",
+      "type": "Book Cafe",
+      "location": "Barcelona",
+      "rating": 4.5,
+      "price_range": "€",
+      "short_description": "Quiet book-filled cafe with cozy nooks perfect for reading or studying.",
+      "signature_items": ["Carrot Cake", "Chai Latte", "Espresso", "Homemade Cookies"],
+      "review_titles": [
+        "Perfect for reading 📚",
+        "Slow service",
+        "Cozy corners",
+        "Charming staff",
+        "Moldy cake 😡"
+      ],
+      "reviews": [
+        "I spent two hours here reading in peace. Perfect little hideaway.",
+        "The service was very slow. I had to wave three times to get noticed.",
+        "Lots of cozy nooks with bookshelves. Feels like a living room.",
+        "The staff chatted with me about books. Super sweet.",
+        "Got a slice of cake that was clearly old. Disgusting."
+      ]
+    },
+    {
+      "label": "Cafe 3",
+      "type": "Specialty Coffee Roaster",
+      "location": "Barcelona",
+      "rating": 4.7,
+      "price_range": "€€",
+      "short_description": "Industrial style roastery with serious focus on coffee origins and brewing methods.",
+      "signature_items": ["Espresso", "Pour Over", "Cortado", "Seasonal Beans"],
+      "review_titles": [
+        "Serious about coffee",
+        "Not cozy at all",
+        "Great espresso",
+        "Barista explained everything",
+        "Burnt espresso 😤"
+      ],
+      "reviews": [
+        "Espresso was so complex, chocolatey with hints of citrus. Amazing.",
+        "Hard chairs and sterile vibe. Not cozy, more industrial.",
+        "The barista really knew their stuff, explaining origins and roasting methods.",
+        "I left learning more about coffee than I expected. Very educational.",
+        "Got a burnt espresso shot. They refused to remake it. Terrible attitude."
+      ]
+    },
+    {
+      "label": "Cafe 4",
+      "type": "Seaside Cafe",
+      "location": "Barcelona",
+      "rating": 4.3,
+      "price_range": "€€",
+      "short_description": "Beachfront cafe with chilled vibes, iced drinks, and sunset views.",
+      "signature_items": ["Iced Latte", "Croissants", "Smoothie Bowls", "Sangria"],
+      "review_titles": [
+        "View is everything 🌊",
+        "Overpriced drinks",
+        "Chill vibes",
+        "Touristy spot",
+        "Hair in my coffee 🤮"
+      ],
+      "reviews": [
+        "Sipping iced latte while watching the sea, pure bliss.",
+        "Seven euros for an iced coffee? That is ridiculous.",
+        "Relaxed and calm, perfect after a beach walk.",
+        "Clearly targeted at tourists, but still enjoyable.",
+        "Found a hair floating in my coffee. Completely unacceptable."
+      ]
+    },
+    {
+      "label": "Cafe 5",
+      "type": "Vegan Cafe",
+      "location": "Barcelona",
+      "rating": 4.6,
+      "price_range": "€€",
+      "short_description": "Bright and cheerful cafe with colorful vegan bowls and smoothies.",
+      "signature_items": ["Açai Bowl", "Quinoa Salad", "Green Smoothie", "Raw Brownie"],
+      "review_titles": [
+        "Healthy and tasty 🌱",
+        "Too many tourists",
+        "Creative smoothies",
+        "Bright and cheerful",
+        "Plastic in my salad 😡"
+      ],
+      "reviews": [
+        "The açai bowl was bright and full of flavor. Felt super healthy.",
+        "Too crowded with tourists snapping photos.",
+        "Smoothies were unique, especially the beetroot and ginger one.",
+        "Decor was cheerful with lots of natural light.",
+        "Found a piece of plastic in my salad. Unforgivable."
+      ]
+    },
+    {
+      "label": "Cafe 6",
+      "type": "Cat Cafe",
+      "location": "Barcelona",
+      "rating": 4.4,
+      "price_range": "€",
+      "short_description": "Quirky cafe where customers can sip coffee surrounded by adoptable cats.",
+      "signature_items": ["Latte", "Hot Chocolate", "Brownies", "Cat Themed Cookies"],
+      "review_titles": [
+        "Cats everywhere 🐱",
+        "Coffee was average",
+        "Fun with friends",
+        "Quirky and unique",
+        "Smelled like litter box 🤢"
+      ],
+      "reviews": [
+        "If you love cats this is heaven. They were all over the place.",
+        "The coffee itself was just okay, nothing special.",
+        "Fun to visit with friends, lots of laughter and photos.",
+        "Quirky concept, definitely memorable.",
+        "The whole place smelled like cat litter. Could not stay long."
+      ]
+    },
+    {
+      "label": "Cafe 7",
+      "type": "Music Cafe",
+      "location": "Barcelona",
+      "rating": 4.5,
+      "price_range": "€€",
+      "short_description": "Moody cafe with live jazz sessions and candlelit tables.",
+      "signature_items": ["Chai Latte", "Espresso Martini", "Cheesecake", "Hot Tea"],
+      "review_titles": [
+        "Live jazz 🎶",
+        "Dark interior",
+        "Great atmosphere",
+        "Nice drinks",
+        "Horrible band night"
+      ],
+      "reviews": [
+        "Live jazz performance made the evening unforgettable.",
+        "Interior was a bit too dark, hard to read the menu.",
+        "Atmosphere was magical, lots of candlelight.",
+        "Drinks were tasty, I recommend the chai latte.",
+        "Band was off key and loud. Gave me a headache."
+      ]
+    },
+    {
+      "label": "Cafe 8",
+      "type": "French Patisserie Cafe",
+      "location": "Barcelona",
+      "rating": 4.7,
+      "price_range": "€€€",
+      "short_description": "Elegant French-inspired cafe serving delicate pastries with coffee.",
+      "signature_items": ["Croissant", "Macarons", "Eclairs", "Café au Lait"],
+      "review_titles": [
+        "Paris in Barcelona 🥐",
+        "Pricey treats",
+        "Flaky croissant",
+        "Elegant decor",
+        "Stale eclair 😠"
+      ],
+      "reviews": [
+        "Felt like I was transported to Paris with their buttery croissant.",
+        "€4.50 for one macaron… a little steep.",
+        "Croissant was buttery, flaky, absolutely perfect.",
+        "The decor was elegant and chic, very French.",
+        "Eclair was stale and soggy. Hugely disappointing."
+      ]
+    },
+    {
+      "label": "Cafe 9",
+      "type": "Student Cafe",
+      "location": "Barcelona",
+      "rating": 4.2,
+      "price_range": "€",
+      "short_description": "Budget-friendly cafe near the university with free Wi-Fi and study vibes.",
+      "signature_items": ["Espresso", "Sandwiches", "Cheap Beer", "Cookies"],
+      "review_titles": [
+        "Perfect for students 🎓",
+        "Cheap but messy",
+        "Fast Wi-Fi",
+        "Great for studying",
+        "Dirty bathroom 😬"
+      ],
+      "reviews": [
+        "Cheap coffee and sandwiches, exactly what students need.",
+        "Tables were sticky and messy, not very clean.",
+        "Fast Wi-Fi made it easy to get work done.",
+        "Quiet enough to study in the morning.",
+        "Bathroom was filthy. Never again."
+      ]
+    },
+    {
+      "label": "Cafe 10",
+      "type": "Boutique Dessert Cafe",
+      "location": "Barcelona",
+      "rating": 4.8,
+      "price_range": "€€€",
+      "short_description": "Upscale cafe focused on luxury desserts and creative lattes.",
+      "signature_items": ["Red Velvet Cake", "Tiramisu Latte", "Matcha Roll Cake", "Rose Tea"],
+      "review_titles": [
+        "Dessert heaven 🍰",
+        "Expensive but worth it",
+        "Beautiful plating",
+        "Romantic atmosphere",
+        "Unfriendly staff"
+      ],
+      "reviews": [
+        "The red velvet cake was moist, rich, and perfectly frosted.",
+        "Yes, it was expensive, but every bite felt worth it.",
+        "Desserts were plated like artwork, almost too pretty to eat.",
+        "Romantic and chic interior, perfect date spot.",
+        "Staff acted like we were a burden. Very off-putting."
+      ]
+    }
+  ],
+  "bakeries": [
+    {
+      "label": "Bakery 1",
+      "type": "Traditional Catalan",
+      "location": "Barcelona",
+      "rating": 4.7,
+      "price_range": "€",
+      "short_description": "Family-run bakery offering traditional Catalan breads and pastries since 1950.",
+      "signature_items": ["Ensaimadas", "Pa de Pagès", "Coca de Llardons", "Panellets"],
+      "review_titles": [
+        "Best ensaimadas 🥐",
+        "Very local",
+        "Friendly bakers",
+        "Fresh bread smell",
+        "Stale croissant 🤢"
+      ],
+      "reviews": [
+        "The ensaimadas were fluffy and sweet, absolutely perfect.",
+        "Felt very local, not touristy at all.",
+        "Bakers were smiling and gave free samples.",
+        "The smell of fresh bread filled the street.",
+        "Got a croissant that tasted like it was from yesterday. Dry and disappointing."
+      ]
+    },
+    {
+      "label": "Bakery 2",
+      "type": "French Bakery",
+      "location": "Barcelona",
+      "rating": 4.6,
+      "price_range": "€€",
+      "short_description": "Elegant French bakery specializing in croissants, baguettes, and éclairs.",
+      "signature_items": ["Baguette", "Butter Croissant", "Chocolate Eclair", "Tarte Tatin"],
+      "review_titles": [
+        "Buttery croissant",
+        "Overpriced baguette",
+        "Delicate pastries",
+        "Feels like Paris",
+        "Stale tart"
+      ],
+      "reviews": [
+        "The butter croissant melted in my mouth. Perfect layers.",
+        "€3.50 for a baguette? Come on.",
+        "Pastries were delicate and beautiful.",
+        "I felt like I was back in Paris.",
+        "The tart I got was stale. Hugely disappointing."
+      ]
+    },
+    {
+      "label": "Bakery 3",
+      "type": "Modern Fusion Bakery",
+      "location": "Barcelona",
+      "rating": 4.5,
+      "price_range": "€€",
+      "short_description": "Trendy bakery mixing Spanish classics with global flavors.",
+      "signature_items": ["Matcha Croissant", "Churro Donut", "Miso Caramel Tart", "Raspberry Danish"],
+      "review_titles": [
+        "Creative flavors",
+        "Too experimental",
+        "Trendy vibe",
+        "Delicious churro donut",
+        "Strange taste"
+      ],
+      "reviews": [
+        "The matcha croissant was a revelation, so unique.",
+        "Some flavors felt forced. Miso caramel tart was odd.",
+        "Cool trendy vibe, very Instagrammable.",
+        "The churro donut was crispy and sweet, amazing.",
+        "The raspberry Danish tasted artificial. Did not enjoy."
+      ]
+    },
+    {
+      "label": "Bakery 4",
+      "type": "Vegan Bakery",
+      "location": "Barcelona",
+      "rating": 4.4,
+      "price_range": "€€",
+      "short_description": "Vegan-friendly bakery making plant-based cakes, cookies, and breads.",
+      "signature_items": ["Vegan Brownies", "Banana Bread", "Carrot Cake", "Seeded Loaf"],
+      "review_titles": [
+        "Tasty vegan treats 🌱",
+        "Dry brownies",
+        "Wholesome flavors",
+        "Nice staff",
+        "Overpriced"
+      ],
+      "reviews": [
+        "Loved the vegan brownies, could not even tell they were plant-based.",
+        "Brownies were too dry for me.",
+        "The flavors were wholesome and not overly sweet.",
+        "Staff was cheerful and kind.",
+        "Too expensive for small portions."
+      ]
+    },
+    {
+      "label": "Bakery 5",
+      "type": "Artisan Sourdough Bakery",
+      "location": "Barcelona",
+      "rating": 4.8,
+      "price_range": "€€",
+      "short_description": "Bakery dedicated to slow-fermented sourdough breads and rustic pastries.",
+      "signature_items": ["Sourdough Loaf", "Olive Bread", "Seeded Crackers", "Rustic Croissants"],
+      "review_titles": [
+        "Best sourdough 🥖",
+        "Crust too hard",
+        "Delicious olive bread",
+        "Rustic vibe",
+        "Bread gone bad"
+      ],
+      "reviews": [
+        "The sourdough loaf had the perfect crust and tangy interior.",
+        "The crust was way too hard, almost cut my gums.",
+        "Olive bread was addictive, salty, chewy, delicious.",
+        "Rustic interior, smelled amazing inside.",
+        "Bought bread in the morning, it was moldy the next day."
+      ]
+    },
+    {
+      "label": "Bakery 6",
+      "type": "Italian Pasticceria",
+      "location": "Barcelona",
+      "rating": 4.6,
+      "price_range": "€€",
+      "short_description": "Italian-style bakery serving cannoli, biscotti, and focaccia.",
+      "signature_items": ["Cannoli", "Biscotti", "Focaccia", "Tiramisu"],
+      "review_titles": [
+        "Authentic Italian 🇮🇹",
+        "Too sweet",
+        "Perfect cannoli",
+        "Friendly owners",
+        "Soggy focaccia"
+      ],
+      "reviews": [
+        "Cannoli tasted exactly like in Sicily. Perfect cream.",
+        "Some pastries were overly sweet.",
+        "Cannoli was crunchy and fresh, filled perfectly.",
+        "Owners were Italian and very welcoming.",
+        "The focaccia was soggy. Big letdown."
+      ]
+    },
+    {
+      "label": "Bakery 7",
+      "type": "German Bakery",
+      "location": "Barcelona",
+      "rating": 4.3,
+      "price_range": "€€",
+      "short_description": "Bakery specializing in hearty German breads and pretzels.",
+      "signature_items": ["Pretzel", "Rye Bread", "Black Forest Cake", "Apple Strudel"],
+      "review_titles": [
+        "Pretzel perfection 🥨",
+        "Bread too heavy",
+        "Authentic taste",
+        "Strudel was amazing",
+        "Dry cake"
+      ],
+      "reviews": [
+        "The pretzel was chewy, salty, and baked perfectly.",
+        "Bread was too heavy for my taste.",
+        "Tasted authentic, just like in Germany.",
+        "The apple strudel was flaky and delicious.",
+        "The Black Forest cake was dry and lifeless."
+      ]
+    },
+    {
+      "label": "Bakery 8",
+      "type": "Portuguese Bakery",
+      "location": "Barcelona",
+      "rating": 4.6,
+      "price_range": "€",
+      "short_description": "Small bakery known for its pastel de nata and strong coffee.",
+      "signature_items": ["Pastel de Nata", "Portuguese Rolls", "Coffee", "Almond Tart"],
+      "review_titles": [
+        "Best pastel de nata 😍",
+        "Too sweet",
+        "Fresh pastries",
+        "Quick service",
+        "Undercooked tart"
+      ],
+      "reviews": [
+        "The pastel de nata had crisp pastry and creamy filling. Amazing.",
+        "Way too sweet for me, could not finish.",
+        "Everything was fresh and warm.",
+        "Fast service, easy stop for takeaway.",
+        "The almond tart was raw in the middle. Unpleasant."
+      ]
+    },
+    {
+      "label": "Bakery 9",
+      "type": "Gluten-Free Bakery",
+      "location": "Barcelona",
+      "rating": 4.5,
+      "price_range": "€€",
+      "short_description": "Dedicated gluten-free bakery with breads, cakes, and cookies.",
+      "signature_items": ["Gluten-Free Baguette", "Almond Cookies", "Brownies", "Quinoa Bread"],
+      "review_titles": [
+        "Life saver 🌾",
+        "Texture was weird",
+        "Delicious brownies",
+        "Great options",
+        "Stale bread"
+      ],
+      "reviews": [
+        "Finally a place where I can eat everything safely. Thank you!",
+        "The bread texture was strange, too crumbly.",
+        "The brownies were rich and satisfying.",
+        "So many options for gluten-free people, loved it.",
+        "Got a baguette that was already stale. Disappointing."
+      ]
+    },
+    {
+      "label": "Bakery 10",
+      "type": "Churro Stand",
+      "location": "Barcelona",
+      "rating": 4.4,
+      "price_range": "€",
+      "short_description": "Casual bakery stand specializing in churros and hot chocolate.",
+      "signature_items": ["Churros", "Chocolate Dipping Sauce", "Filled Churros", "Hot Chocolate"],
+      "review_titles": [
+        "Best churros ever 🤩",
+        "Messy but tasty",
+        "Great street food",
+        "Perfect snack",
+        "Cold churros 😡"
+      ],
+      "reviews": [
+        "The churros were crunchy outside, soft inside, heavenly with chocolate.",
+        "It was messy but worth it. Chocolate everywhere!",
+        "Street food vibes, great snack while walking.",
+        "Perfect afternoon pick-me-up.",
+        "Got cold churros that tasted like cardboard. Horrible."
+      ]
+    }
+  ]
+}
