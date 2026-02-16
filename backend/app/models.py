@@ -14,7 +14,7 @@ class UserProfile(BaseModel):
 
 class RecommendationRequest(BaseModel):
     user_id: str = "user_001"
-    location: str = "Spain"
+    location: str = "India"
     # Optional visit history to override default
     visit_history: Optional[List[Dict]] = None
 

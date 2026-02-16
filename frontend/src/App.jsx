@@ -3,7 +3,7 @@ import axios from 'axios'
 import './App.css'
 
 function App() {
-  const [location, setLocation] = useState('Spain')
+  const [location, setLocation] = useState('India')
   const [loading, setLoading] = useState(false)
   const [result, setResult] = useState(null)
   const [error, setError] = useState(null)
@@ -40,7 +40,7 @@ function App() {
             type="text"
             value={location}
             onChange={(e) => setLocation(e.target.value)}
-            placeholder="e.g. Barcelona, Spain"
+            placeholder="e.g. Mumbai, India"
           />
           <button onClick={handleRecommend} disabled={loading} className="cta-button">
             {loading ? 'Consulting Experts...' : 'Get Recommendations'}

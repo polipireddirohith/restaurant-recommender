@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List, Optional, Dict
 import os
@@ -17,6 +18,14 @@ from app.data_loader import load_default_history
 load_dotenv()
 
 app = FastAPI(title="Restaurant Recommender Agent")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Global variables for rigorous initialization
 retriever_tool = None
