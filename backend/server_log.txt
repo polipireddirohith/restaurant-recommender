@@ -1,0 +1,87 @@
+INFO:     Will watch for changes in these directories: ['F:\\multi-agent\\restaurant-recommender\\backend']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [20424] using WatchFiles
+INFO:     Started server process [9400]
+INFO:     Waiting for application startup.
+F:\multi-agent\.venv_new\lib\site-packages\google\api_core\_python_version_support.py:275: FutureWarning: You are using a Python version (3.10.0) which Google will stop supporting in new releases of google.api_core once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.api_core past that date.
+  warnings.warn(message, FutureWarning)
+F:\multi-agent\restaurant-recommender\backend\app\tools.py:83: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+Warning: SERPER_API_KEY not set. Food Trend Agent will be disabled.
+[V2] Setting up RAG Retriever...
+Initializing Gemini Embeddings...
+Discovered embedding models: ['models/gemini-embedding-001']
+Trying embedding model: models/text-embedding-004...
+Embedding model models/text-embedding-004 failed: Error embedding content (NOT_FOUND): 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/text-embedding-004 is not found for API version v1beta, or is not supported for embedContent. Call ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+Trying embedding model: models/embedding-001...
+Embedding model models/embedding-001 failed: Error embedding content (NOT_FOUND): 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/embedding-001 is not found for API version v1beta, or is not supported for embedContent. Call ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+Trying embedding model: models/gemini-embedding-001...
+Selected embedding model: models/gemini-embedding-001
+Embedding 30 documents into Chroma...
+Vector database created successfully.
+RAG Retriever setup complete.
+Setting up LLM...
+Discovered generative models: ['gemini-2.5-flash', 'gemini-2.5-pro', 'gemini-2.0-flash', 'gemini-2.0-flash-001', 'gemini-2.0-flash-exp-image-generation', 'gemini-2.0-flash-lite-001', 'gemini-2.0-flash-lite', 'gemini-exp-1206', 'gemini-2.5-flash-preview-tts', 'gemini-2.5-pro-preview-tts', 'gemma-3-1b-it', 'gemma-3-4b-it', 'gemma-3-12b-it', 'gemma-3-27b-it', 'gemma-3n-e4b-it', 'gemma-3n-e2b-it', 'gemini-flash-latest', 'gemini-flash-lite-latest', 'gemini-pro-latest', 'gemini-2.5-flash-lite', 'gemini-2.5-flash-image', 'gemini-2.5-flash-preview-09-2025', 'gemini-2.5-flash-lite-preview-09-2025', 'gemini-3-pro-preview', 'gemini-3-flash-preview', 'gemini-3-pro-image-preview', 'nano-banana-pro-preview', 'gemini-robotics-er-1.5-preview', 'gemini-2.5-computer-use-preview-10-2025', 'deep-research-pro-preview-12-2025']
+Trying LLM model: gemini-2.5-flash...
+Selected LLM model: gemini-2.5-flash
+INFO:     Application startup complete.
+Loading default visit history...
+Kicking off Crew with location: Mumbai
++-------------------------[CrewAIEventsBus] Sync handler error in on_crew_started: 'charmap' codec can't 
+encode character '\U0001f680' in position 1: character maps to <undefined>
++-------------------------[CrewAIEventsBus] Sync handler error in on_task_started: 'charmap' codec can't 
+encode character '\U0001f680' in position 1: character maps to <undefined>
++-------------------------[CrewAIEventsBus] Sync handler error in on_agent_logs_started: 'charmap' codec 
+can't encode character '\U0001f680' in position 1: character maps to 
+<undefined>
++---------------------------[CrewAIEventsBus] Sync handler error in on_agent_logs_execution: 'charmap' 
+codec can't encode character '\u2705' in position 1: character maps to 
+<undefined>
++---------------------------[CrewAIEventsBus] Sync handler error in on_task_completed: 'charmap' codec 
+can't encode character '\u2705' in position 1: character maps to <undefined>
++-------------------------[CrewAIEventsBus] Sync handler error in on_task_started: 'charmap' codec can't 
+encode character '\U0001f680' in position 1: character maps to <undefined>
++---------------------------[CrewAIEventsBus] Sync handler error in on_agent_logs_started: 'charmap' codec 
+can't encode character '\u2705' in position 1: character maps to <undefined>
++-------------------------[CrewAIEventsBus] Sync handler error in on_tool_usage_started: 'charmap' codec 
+can't encode character '\U0001f680' in position 1: character maps to 
+<undefined>
+[32mTool rag_retriever executed with result: {'Recommendation 1': 'Shop name: Cafe 3. Shop type: Specialty Coffee Roaster. Shop location: Barcelona. Shop rating: 4.7. Shop price_range: 0. Shop short description: Industrial style roastery with se...[0m
++---------------------------[CrewAIEventsBus] Sync handler error in on_tool_usage_finished: 'charmap' codec
+can't encode character '\u2705' in position 1: character maps to <undefined>
++-------------------------[CrewAIEventsBus] Sync handler error in on_agent_logs_execution: 'charmap' 
+codec can't encode character '\U0001f680' in position 1: character maps to 
+<undefined>
++---------------------------[CrewAIEventsBus] Sync handler error in on_task_completed: 'charmap' codec 
+can't encode character '\u2705' in position 1: character maps to <undefined>
++-------------------------[CrewAIEventsBus] Sync handler error in on_task_started: 'charmap' codec can't 
+encode character '\U0001f680' in position 1: character maps to <undefined>
++---------------------------[CrewAIEventsBus] Sync handler error in on_agent_logs_started: 'charmap' codec 
+can't encode character '\u2705' in position 1: character maps to <undefined>
++-------------------------[CrewAIEventsBus] Sync handler error in on_agent_logs_execution: 'charmap' 
+codec can't encode character '\U0001f680' in position 1: character maps to 
+<undefined>
++---------------------------[CrewAIEventsBus] Sync handler error in on_task_completed: 'charmap' codec 
+can't encode character '\u2705' in position 1: character maps to <undefined>
++-------------------------[CrewAIEventsBus] Sync handler error in on_crew_completed: 'charmap' codec 
+can't encode character '\U0001f680' in position 1: character maps to 
+<undefined>
+INFO:     127.0.0.1:52667 - "POST /recommend HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'test_key.py'. Reloading...
+================================================================================
+RUNNING IN AI MODE (Google Gemini)
+================================================================================
+Gemini credentials detected. Using Gemini-powered backend.
+================================================================================
+ INFO:     127.0.0.1:62377 - "OPTIONS /recommend HTTP/1.1" 200 OK
+Loading default visit history...
+Kicking off Crew with location: India
++---------------------------[CrewAIEventsBus] Sync handler error in on_crew_started: 'charmap' codec can't 
+encode character '\u2705' in position 1: character maps to <undefined>

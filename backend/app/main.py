@@ -21,7 +21,7 @@ app = FastAPI(title="Restaurant Recommender Agent")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -64,28 +64,69 @@ async def startup_event():
     if gemini_apikey:
         try:
             retriever_instance = setup_rag(api_key=gemini_apikey)
-            # Create Tool instance and inject retriever
-            rag_retriever = RAG_Retriever()
-            rag_retriever.retriever = retriever_instance
-            retriever_tool = rag_retriever
-            print("RAG Retriever setup complete.")
+            if retriever_instance:
+                # Create Tool instance and inject retriever
+                rag_retriever = RAG_Retriever()
+                rag_retriever.retriever = retriever_instance
+                retriever_tool = rag_retriever
+                print("RAG Retriever setup complete.")
+            else:
+                print("RAG setup failed but server continuing.")
+                retriever_tool = None
         except Exception as e:
             print(f"Failed to setup RAG: {e}")
+            retriever_tool = None
     else:
         print("Skipping RAG setup - no API key")
 
     # Setup LLM
     print("Setting up LLM...")
     if gemini_apikey:
+        import google.generativeai as genai
+        genai.configure(api_key=gemini_apikey)
+        candidates = []
+        # Add any models actually found in the list that look like flash/pro
         try:
-            llm = LLM(
-                model="gemini/gemini-1.5-flash",
-                api_key=gemini_apikey
-            )
-            print("LLM setup complete.")
+            available = [m.name.split("/")[-1] for m in genai.list_models() if "generateContent" in m.supported_generation_methods]
+            print(f"Discovered generative models: {available}")
+            import sys
+            sys.stdout.flush()
+            # Prefer flash models
+            for m in available:
+                if "flash" in m and "lite" not in m:
+                    candidates.append(m)
+            # Then pro models
+            for m in available:
+                if "pro" in m and m not in candidates:
+                    candidates.append(m)
+            # Then anything else
+            for m in available:
+                if m not in candidates:
+                    candidates.append(m)
         except Exception as e:
-            print(f"Failed to setup LLM: {e}")
-            llm = None
+            print(f"Note: Could not list models: {e}")
+            import sys
+            sys.stdout.flush()
+            candidates = ["gemini-1.5-flash", "gemini-2.0-flash-exp", "gemini-pro"]
+
+        llm = None
+        for model_name in candidates:
+            try:
+                print(f"Trying LLM model: {model_name}...")
+                import sys
+                sys.stdout.flush()
+                test_llm = LLM(model=f"gemini/{model_name}", api_key=gemini_apikey)
+                # Success if no immediate error (CrewAI LLM doesn't validate on init usually)
+                llm = test_llm
+                print(f"Selected LLM model: {model_name}")
+                sys.stdout.flush()
+                break
+            except Exception as e:
+                print(f"Model {model_name} failed: {e}")
+                continue
+        
+        if not llm:
+            print("FAILED to find any working LLM model.")
     else:
         print("Skipping LLM setup - no API key")
         llm = None
@@ -137,16 +178,22 @@ async def recommend(request: RecommendationRequest):
         output_pydantic=UserProfile
     )
 
-    # Coarse RAG Task
-    coarse_RAG_match_task = Task(
-        description=task_config['coarse_RAG_match_task']['description'],
-        expected_output=task_config['coarse_RAG_match_task']['expected_output'],
-        agent=coarse_RAG_matcher,
-        context=[user_profile_task]
-    )
+    tasks = [user_profile_task]
+    agents = [user_profile_builder]
 
-    tasks = [user_profile_task, coarse_RAG_match_task]
-    agents = [user_profile_builder, coarse_RAG_matcher]
+    # Coarse RAG Task
+    coarse_RAG_match_task = None
+    if retriever_tool:
+        coarse_RAG_match_task = Task(
+            description=task_config['coarse_RAG_match_task']['description'],
+            expected_output=task_config['coarse_RAG_match_task']['expected_output'],
+            agent=coarse_RAG_matcher,
+            context=[user_profile_task]
+        )
+        tasks.append(coarse_RAG_match_task)
+        agents.append(coarse_RAG_matcher)
+    else:
+        print("Skipping Coarse RAG Match Task - retriever tool not available")
 
     # Food Trend Task
     food_trend_task = None
@@ -160,7 +207,9 @@ async def recommend(request: RecommendationRequest):
         agents.append(food_trend_researcher)
 
     # Recommendation Task
-    context_tasks = [user_profile_task, coarse_RAG_match_task]
+    context_tasks = [user_profile_task]
+    if coarse_RAG_match_task:
+        context_tasks.append(coarse_RAG_match_task)
     if food_trend_task:
         context_tasks.append(food_trend_task)
 
@@ -181,20 +230,31 @@ async def recommend(request: RecommendationRequest):
         verbose=True
     )
 
-    # 5. Kickoff
-    inputs = {
-        "visit_history": visit_history if visit_history else [],
-        "location": request.location
-    }
-    
+    print(f"Kicking off Crew with location: {request.location}")
     try:
+        # 5. Kickoff
+        inputs = {
+            "visit_history": visit_history if visit_history else [],
+            "location": request.location
+        }
+        
         result = crew.kickoff(inputs=inputs)
         return RestaurantRecommendation(
             recommendations=str(result),
-            crew_log="Crew execution completed." # Capture logs if possible
+            crew_log="Crew execution completed."
         )
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Crew execution failed: {str(e)}")
+        print(f"ERROR during crew kickoff: {e}")
+        import traceback
+        traceback.print_exc()
+        raise HTTPException(
+            status_code=500, 
+            detail={
+                "error": "Crew execution failed",
+                "message": str(e),
+                "suggestion": "Check if your Gemini API key has access to the specified model."
+            }
+        )
 
 @app.get("/")
 def read_root():

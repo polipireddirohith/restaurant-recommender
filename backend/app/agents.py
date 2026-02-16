@@ -1,5 +1,4 @@
 from crewai import Agent
-from langchain_ibm import WatsonxLLM
 import yaml
 import os
 
@@ -23,11 +22,12 @@ def create_agents(llm, tools_map):
         allow_delegation=False
     )
 
+    tools = [tools_map['retriever_tool']] if tools_map.get('retriever_tool') else []
     coarse_RAG_matcher = Agent(
         role=config['coarse_RAG_matcher']['role'],
         goal=config['coarse_RAG_matcher']['goal'],
         backstory=config['coarse_RAG_matcher']['backstory'],
-        tools=[tools_map['retriever_tool']],
+        tools=tools,
         llm=llm,
         verbose=True,
         allow_delegation=False
@@ -45,11 +45,12 @@ def create_agents(llm, tools_map):
 
     food_trend_researcher = None
     if 'food_trend_agent' in config and tools_map.get('search_tool'):
+        search_tools = [tools_map['search_tool']] if tools_map.get('search_tool') else []
         food_trend_researcher = Agent(
             role=config['food_trend_agent']['role'],
             goal=config['food_trend_agent']['goal'],
             backstory=config['food_trend_agent']['backstory'],
-            tools=[tools_map['search_tool']],
+            tools=search_tools,
             llm=llm,
             verbose=True,
             allow_delegation=False

@@ -79,19 +79,59 @@ def setup_rag(api_key=None):
             documents.append(document)
 
     # Initialize Embeddings
-    print("Initializing Gemini Embeddings...")
-    embeddings = GoogleGenerativeAIEmbeddings(
-        model="models/embedding-001",
-        google_api_key=api_key
-    )
+    print(f"Initializing Gemini Embeddings...")
+    import google.generativeai as genai
+    genai.configure(api_key=api_key)
+    
+    candidates = ["models/text-embedding-004", "models/embedding-001"]
+    try:
+        available = [m.name for m in genai.list_models() if "embedContent" in m.supported_generation_methods]
+        print(f"Discovered embedding models: {available}")
+        import sys
+        sys.stdout.flush()
+        for m in available:
+            if m not in candidates:
+                candidates.append(m)
+    except Exception as e:
+        print(f"Note: Could not list embedding models: {e}")
+        import sys
+        sys.stdout.flush()
+
+    embeddings = None
+    for emb_model in candidates:
+        try:
+            print(f"Trying embedding model: {emb_model}...")
+            import sys
+            sys.stdout.flush()
+            embeddings = GoogleGenerativeAIEmbeddings(
+                model=emb_model,
+                google_api_key=api_key
+            )
+            # Test it
+            embeddings.embed_query("test")
+            print(f"Selected embedding model: {emb_model}")
+            sys.stdout.flush()
+            break
+        except Exception as e:
+            print(f"Embedding model {emb_model} failed: {e}")
+            embeddings = None
+            continue
+
+    if not embeddings:
+        print("FAILED to initialize any embedding model.")
+        return None
 
     print(f"Embedding {len(documents)} documents into Chroma...")
-    vector_db = Chroma.from_documents(
-        documents=documents,
-        embedding=embeddings,
-        collection_name='restaurant_collection'
-    )
-    print("Vector database created.")
+    try:
+        vector_db = Chroma.from_documents(
+            documents=documents,
+            embedding=embeddings,
+            collection_name='restaurant_collection'
+        )
+        print("Vector database created successfully.")
+    except Exception as e:
+        print(f"FAILED to create vector database: {e}")
+        raise e
     
     # Create Retriever
     retriever = vector_db.as_retriever(search_type="similarity", search_kwargs={"k": 10})

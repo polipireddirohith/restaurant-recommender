@@ -19,7 +19,7 @@ if __name__ == "__main__":
         uvicorn.run("app.main_demo:app", host="0.0.0.0", port=8000, reload=True)
     else:
         print("=" * 80)
-        print("🤖 RUNNING IN AI MODE (Google Gemini)")
+        print("RUNNING IN AI MODE (Google Gemini)")
         print("=" * 80)
         print("Gemini credentials detected. Using Gemini-powered backend.")
         print("=" * 80)
