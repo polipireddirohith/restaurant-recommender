@@ -38,47 +38,57 @@ async def startup_event():
     global retriever_tool, search_tool, llm, rag_retriever
     
     # Check credentials
-    watsonx_url = os.getenv("WATSONX_URL", "https://us-south.ml.cloud.ibm.com")
-    watsonx_apikey = os.getenv("WATSONX_APIKEY")
-    watsonx_project_id = os.getenv("WATSONX_PROJECT_ID", "skills-network")
+    gemini_apikey = os.getenv("GEMINI_API_KEY")
     serper_api_key = os.getenv("SERPER_API_KEY")
 
-    if not watsonx_apikey:
-        print("Warning: WATSONX_APIKEY not set. RAG and LLM might fail.")
+    # Check if API key is valid (not placeholder)
+    if not gemini_apikey or gemini_apikey.startswith("your_"):
+        print("=" * 80)
+        print("ERROR: GEMINI_API_KEY not configured!")
+        print(" Please update the .env file with your actual Google Gemini API key.")
+        print("=" * 80)
+        gemini_apikey = None
     
-    if serper_api_key:
+    if serper_api_key and not serper_api_key.startswith("your_"):
         os.environ["SERPER_API_KEY"] = serper_api_key
-        search_tool = SerperDevTool()
+        try:
+            search_tool = SerperDevTool()
+            print("Serper search tool initialized.")
+        except Exception as e:
+            print(f"Warning: Failed to initialize Serper tool: {e}")
     else:
         print("Warning: SERPER_API_KEY not set. Food Trend Agent will be disabled.")
 
     # Setup RAG
-    print("Setting up RAG Retriever...")
-    try:
-        retriever_instance = setup_rag(api_key=watsonx_apikey, project_id=watsonx_project_id, url=watsonx_url)
-        # Create Tool instance and inject retriever
-        rag_retriever = RAG_Retriever()
-        rag_retriever.retriever = retriever_instance
-        retriever_tool = rag_retriever
-        print("RAG Retriever setup complete.")
-    except Exception as e:
-        print(f"Failed to setup RAG: {e}")
+    print("[V2] Setting up RAG Retriever...")
+    if gemini_apikey:
+        try:
+            retriever_instance = setup_rag(api_key=gemini_apikey)
+            # Create Tool instance and inject retriever
+            rag_retriever = RAG_Retriever()
+            rag_retriever.retriever = retriever_instance
+            retriever_tool = rag_retriever
+            print("RAG Retriever setup complete.")
+        except Exception as e:
+            print(f"Failed to setup RAG: {e}")
+    else:
+        print("Skipping RAG setup - no API key")
 
     # Setup LLM
     print("Setting up LLM...")
-    try:
-        # Using Watsonx LLM via CrewAI LLM wrapper if compatible or LangChain
-        # The notebook used CrewAI's LLM class.
-        llm = LLM(
-            model="watsonx/meta-llama/llama-3-3-70b-instruct",
-            base_url=watsonx_url,
-            project_id=watsonx_project_id,
-            max_tokens=2000,
-            api_key=watsonx_apikey
-        )
-        print("LLM setup complete.")
-    except Exception as e:
-         print(f"Failed to setup LLM: {e}")
+    if gemini_apikey:
+        try:
+            llm = LLM(
+                model="gemini/gemini-1.5-flash",
+                api_key=gemini_apikey
+            )
+            print("LLM setup complete.")
+        except Exception as e:
+            print(f"Failed to setup LLM: {e}")
+            llm = None
+    else:
+        print("Skipping LLM setup - no API key")
+        llm = None
 
 
 @app.post("/recommend", response_model=RestaurantRecommendation)
@@ -86,12 +96,12 @@ async def recommend(request: RecommendationRequest):
     global llm, retriever_tool, search_tool
 
     if not llm:
-        raise HTTPException(status_code=500, detail="LLM not initialized.")
+        raise HTTPException(
+            status_code=503, 
+            detail="Service not available: Google Gemini API key not configured. Please update the .env file with valid GEMINI_API_KEY."
+        )
     
     # 1. Image Analysis (if images are provided in visit history)
-    # For now, we assume visit_history has pre-processed descriptions or we reuse the dummy data
-    # In a real app, we would process images here using restaurant_image_analysis
-    
     visit_history = request.visit_history
     if not visit_history:
         print("Loading default visit history...")
@@ -116,7 +126,6 @@ async def recommend(request: RecommendationRequest):
     from app.tasks import load_task_config
     task_config = load_task_config()
 
-    # Re-import Task to avoid circular issues or just define here
     from crewai import Task
     from app.models import UserProfile
 
@@ -189,4 +198,4 @@ async def recommend(request: RecommendationRequest):
 
 @app.get("/")
 def read_root():
-    return {"status": "Backend is running"}
+    return {"status": "Backend is running with Google Gemini"}
